@@ -19,23 +19,58 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct RideRateApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    struct ContentView: View {
+        @StateObject var manager = RatingManager()
+        
+        @State private var vehicleId = "MAV-IC-1234"
+        @State private var cleanliness = 3
+        @State private var punctuality = 4
+        @State private var crowdedness = 2
+        @State private var comment = ""
 
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+        var body: some View {
+            NavigationView {
+                VStack {
+                    Form {
+                        Text("Jármű ID: \(vehicleId)")
+                        Stepper("Tisztaság: \(cleanliness)", value: $cleanliness, in: 1...5)
+                        Stepper("Pontosság: \(punctuality)", value: $punctuality, in: 1...5)
+                        Stepper("Zsúfoltság: \(crowdedness)", value: $crowdedness, in: 1...5)
+                        TextField("Megjegyzés", text: $comment)
+                        Button("Értékelés beküldése") {
+                            let rating = Rating(
+                                vehicleId: vehicleId,
+                                cleanliness: cleanliness,
+                                punctuality: punctuality,
+                                crowdedness: crowdedness,
+                                comment: comment,
+                                timestamp: Date()
+                            )
+                            manager.addRating(rating)
+                            comment = ""
+                        }
+                    }
+
+                    List(manager.ratings) { rating in
+                        VStack(alignment: .leading) {
+                            Text("🧹 Tisztaság: \(rating.cleanliness), ⏱️ Pontosság: \(rating.punctuality), 👥 Zsúfoltság: \(rating.crowdedness)")
+                            Text("💬 \(rating.comment)").italic()
+                            Text("📅 \(rating.timestamp.formatted())").font(.caption)
+                        }
+                    }
+                }
+                .onAppear {
+                    manager.fetchRatings(for: vehicleId)
+                }
+                .navigationTitle("Értékelés")
+            }
         }
-    }()
+    }
+    
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
     }
 }
