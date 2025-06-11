@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5907307F2DFA2298004A4B42 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 5907307E2DFA2298004A4B42 /* SwiftProtobuf */; };
+		590730812DFA2298004A4B42 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 590730802DFA2298004A4B42 /* SwiftProtobufPluginLibrary */; };
+		590730832DFA2298004A4B42 /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 590730822DFA2298004A4B42 /* protoc-gen-swift */; };
 		59E9D6732DF460EF000D8879 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 59E9D6722DF460EF000D8879 /* FirebaseAI */; };
 		59E9D6752DF460EF000D8879 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 59E9D6742DF460EF000D8879 /* FirebaseAnalytics */; };
 		59E9D6772DF460EF000D8879 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 59E9D6762DF460EF000D8879 /* FirebaseAnalyticsCore */; };
@@ -98,12 +101,15 @@
 				59E9D6852DF4654B000D8879 /* FirebaseCore in Frameworks */,
 				59E9D6732DF460EF000D8879 /* FirebaseAI in Frameworks */,
 				59E9D68F2DF4654B000D8879 /* FirebaseFunctions in Frameworks */,
+				590730812DFA2298004A4B42 /* SwiftProtobufPluginLibrary in Frameworks */,
+				5907307F2DFA2298004A4B42 /* SwiftProtobuf in Frameworks */,
 				59E9D6972DF4654B000D8879 /* FirebaseStorage in Frameworks */,
 				59E9D68D2DF4654B000D8879 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				59E9D6932DF4654B000D8879 /* FirebaseMessaging in Frameworks */,
 				59E9D68B2DF4654B000D8879 /* FirebaseFirestore in Frameworks */,
 				59E9D6992DF4654B000D8879 /* FirebaseStorageCombine-Community in Frameworks */,
 				59E9D6892DF4654B000D8879 /* FirebaseDynamicLinks in Frameworks */,
+				590730832DFA2298004A4B42 /* protoc-gen-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +188,9 @@
 				59E9D6942DF4654B000D8879 /* FirebasePerformance */,
 				59E9D6962DF4654B000D8879 /* FirebaseStorage */,
 				59E9D6982DF4654B000D8879 /* FirebaseStorageCombine-Community */,
+				5907307E2DFA2298004A4B42 /* SwiftProtobuf */,
+				590730802DFA2298004A4B42 /* SwiftProtobufPluginLibrary */,
+				590730822DFA2298004A4B42 /* protoc-gen-swift */,
 			);
 			productName = RideRate;
 			productReference = 59E9D6402DF45E1E000D8879 /* RideRate.app */;
@@ -267,6 +276,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				59E9D6712DF460EF000D8879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5907307D2DFA2298004A4B42 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 59E9D6412DF45E1E000D8879 /* Products */;
@@ -645,6 +655,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5907307D2DFA2298004A4B42 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.0;
+			};
+		};
 		59E9D6712DF460EF000D8879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -656,6 +674,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5907307E2DFA2298004A4B42 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5907307D2DFA2298004A4B42 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		590730802DFA2298004A4B42 /* SwiftProtobufPluginLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5907307D2DFA2298004A4B42 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobufPluginLibrary;
+		};
+		590730822DFA2298004A4B42 /* protoc-gen-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5907307D2DFA2298004A4B42 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = "protoc-gen-swift";
+		};
 		59E9D6722DF460EF000D8879 /* FirebaseAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 59E9D6712DF460EF000D8879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

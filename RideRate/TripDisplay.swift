@@ -14,7 +14,7 @@ struct TripDisplay: View {
         NavigationView {
             List(manager.trips, id: \.id) { trip in
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(trip.trip_short_name)
+                    Text(trip.trip_short_name ?? "Failed to load t")
                         .font(.headline)
                     if let headsign = trip.trip_headsign {
                         Text(headsign)
@@ -39,3 +39,4 @@ struct TripDisplay: View {
 #Preview {
     TripDisplay()
 }
+
