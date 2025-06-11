@@ -19,4 +19,5 @@ struct Stop: Identifiable, Codable {
     var stop_lat: Double
     var location_type: Int
     var zone_id  : String?
+    var stop_id: String?
 }

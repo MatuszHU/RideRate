@@ -14,4 +14,5 @@ struct Shape: Identifiable, Codable{
     var shape_pt_lon: Double
     var shape_pt_sequence: Int
     var shape_dist_traveled: String?
+    var shape_id: String?
 }

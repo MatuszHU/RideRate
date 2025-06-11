@@ -14,5 +14,6 @@ struct Agency: Identifiable, Codable{
     var lang: String?
     var name: String?
     @DocumentID var id: String?
+    var agency_id: String
     
 }

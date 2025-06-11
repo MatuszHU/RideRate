@@ -18,5 +18,7 @@ struct Calendar: Identifiable, Codable{
     var sunday: String?
     var end_date: String?
     var start_date: String?
-    
+    var service_id: String?
+
 }
+

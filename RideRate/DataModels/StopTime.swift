@@ -18,5 +18,6 @@ struct StopTime: Identifiable, Codable{
     var trip_id: String?
     var departure_time: String?
     var stop_sequence: Int?
-    
 }
+
+

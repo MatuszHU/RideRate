@@ -15,5 +15,5 @@ struct Route: Identifiable, Codable {
     var route_text_color: String?
     var route_type: String?
     var route_color: String?
-
+    var route_id: String?
 }

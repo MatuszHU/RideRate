@@ -16,4 +16,5 @@ struct FeedInfo: Identifiable, Codable {
     var version: String?
     var publisher_url: String?
     @DocumentID var id: String?
+    
 }
